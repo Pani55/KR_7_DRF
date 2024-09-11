@@ -12,6 +12,9 @@ class User(AbstractUser):
     photo = models.ImageField(
         verbose_name="Фотография профиля", upload_to="users/", blank=True, null=True
     )
+    telegram_id = models.CharField(
+        max_length=30, verbose_name="Telegram chat ID", blank=True, null=True
+    )
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

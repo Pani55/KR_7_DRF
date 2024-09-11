@@ -12,25 +12,14 @@ class Habit(models.Model):
         null=True,
     )
     place = models.CharField(
-        max_length=100,
-        verbose_name="Место выполнения",
-        blank=True,
-        null=True
+        max_length=100, verbose_name="Место выполнения", blank=True, null=True
     )
-    time = models.TimeField(
-        verbose_name="Время выполнения",
-        blank=True,
-        null=True
-    )
+    time = models.TimeField(verbose_name="Время выполнения", blank=True, null=True)
     action = models.CharField(
-        max_length=200,
-        verbose_name="Действие",
-        blank=True,
-        null=True
+        max_length=200, verbose_name="Действие", blank=True, null=True
     )
     is_pleasant = models.BooleanField(
-        verbose_name="Признак приятной привычки",
-        default=False
+        verbose_name="Признак приятной привычки", default=False
     )
     relation_habit = models.ForeignKey(
         "self",
@@ -43,7 +32,7 @@ class Habit(models.Model):
         max_length=200,
         verbose_name="Награда за выполнение привычки",
         blank=True,
-        null=True
+        null=True,
     )
     periodicity = models.PositiveIntegerField(
         default=1,
@@ -57,9 +46,17 @@ class Habit(models.Model):
         blank=True,
     )
     is_public = models.BooleanField(
-        verbose_name="Публичная привычка",
-        default=False,
-        blank=True
+        verbose_name="Публичная привычка", default=False, blank=True
+    )
+    first_date = models.DateTimeField(
+        verbose_name="Дата первого выполнения",
+        blank=True,
+        null=True,
+    )
+    next_date = models.DateTimeField(
+        verbose_name="Дата следующего выполнения",
+        null=True,
+        blank=True,
     )
 
     class Meta:

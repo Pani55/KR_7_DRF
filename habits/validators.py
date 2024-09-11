@@ -14,4 +14,6 @@ def validate_duration(duration):
     except TypeError as e:
         raise serializers.ValidationError(str(e))
     if duration > timedelta(minutes=2):
-        raise serializers.ValidationError("Duration must be less than or equal to 2 minutes")
+        raise serializers.ValidationError(
+            "Duration must be less than or equal to 2 minutes"
+        )
